@@ -1,25 +1,45 @@
-const User = require('../../class/User');
+const { validUser, invalidAgeUser, invalidMailUser, invalidUidUser } = require('../__mocks__/users.mocks.js');
 
-const testUser = new User('Jean', 'Michel', 28, 'dab.dab@dab.dab');
-
-test('User as firstName, lastName, age, email and uid by default', () => {
-    expect(testUser.uid).toBeDefined();
-    expect(testUser.firstName).toBeDefined();
-    expect(testUser.lastName).toBeDefined();
-    expect(testUser.age).toBeDefined();
-    expect(testUser.email).toBeDefined();
+describe("Tests about User", () => {
+    test('User as firstName, lastName, age, email and uid by default', () => {
+        expect(validUser.uid).toBeDefined();
+        expect(validUser.firstName).toBeDefined();
+        expect(validUser.lastName).toBeDefined();
+        expect(validUser.age).toBeDefined();
+        expect(validUser.email).toBeDefined();
+    });
 });
 
-test('User ID is an UUID', () => {
-    const regex = /[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/;
-    expect(testUser.uid).toMatch(regex);
+describe("UID's User check", () => {
+    it('User ID is an UUID', () => {
+        const regex = /[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/;
+        expect(validUser.uid).toMatch(regex);
+    });
+
+    it('User ID is an invalid UUID', () => {
+        const regex = /[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/;
+        expect(invalidUidUser.uid).not.toMatch(regex);
+    });
 });
 
-test('User has a valid email', () => {
-    const regex = /\S+@\S+\.\S+/;
-    expect(testUser.email).toMatch(regex);
+describe("User Email Check", () => {
+    it('User has a valid email', () => {
+        const regex = /\S+@\S+\.\S+/;
+        expect(validUser.email).toMatch(regex);
+    });
+
+    it('Email not matches regex', () => {
+        const regex = /\S+@\S+\.\S+/;
+        expect(invalidMailUser.email).not.toMatch(regex);
+    });
 });
 
-test("User's age is more than 13", () => {
-    expect(testUser.age).toBeGreaterThanOrEqual(13);
+describe("User Email Check", () => {
+    it("User's age is more than 13", () => {
+        expect(validUser.age).toBeGreaterThanOrEqual(13);
+    });
+
+    it("Underage User", () => {
+        expect(invalidAgeUser.age).not.toBeGreaterThanOrEqual(13);
+    });
 });
