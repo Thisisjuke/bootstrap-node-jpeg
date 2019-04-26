@@ -4,7 +4,7 @@ const Cart = require('../class/Cart');
 
 const testFile = () => {
 
-    const Fabrice = new User('Fabrice');
+    const Fabrice = new User('Fabrice', 'Dab', 28, 'f.dab@gmail.com');
 
     const AquaBottle = new Product('1', "Bouteille d'eau", "Boit de l'eau.", 1);
     const FortniteBook = new Product('2', "Livre Fortnite", "Faire des TOP1 les kheys.", 12, 10);

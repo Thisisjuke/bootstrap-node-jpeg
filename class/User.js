@@ -5,8 +5,11 @@ class User {
             return v.toString(16);
         });
     }
-    constructor(name) {
-        this.name = name;
+    constructor(firstName, lastName, age, email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
         this.uid = this.createUUID();
     }
 
@@ -16,11 +19,29 @@ class User {
     set uid(uid) {
         this._uid = uid;
     }
-    set name(name) {
-        this._name = name.charAt(0).toUpperCase() + name.slice(1);
+    set firstName(firstName) {
+        this._firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
     }
-    get name() {
-        return this._name;
+    get firstName() {
+        return this._firstName;
+    }
+    set lastName(lastName) {
+        this._lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+    }
+    get lastName() {
+        return this._lastName;
+    }
+    get email() {
+        return this._email;
+    }
+    set email(email) {
+        this._email = email;
+    }
+    get age() {
+        return this._age;
+    }
+    set age(age) {
+        this._age = age;
     }
 }
 
