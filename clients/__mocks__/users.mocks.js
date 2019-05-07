@@ -1,34 +1,13 @@
-const validUser = {
-    firstName: "Fabrice",
-    lastName: "Dab",
-    email: "f.dab@gmail.com",
-    age: 28,
-    uid: "7663ad8f-dff9-44f7-932b-404f4e866d43"
-};
+import User from '../../class/User';
 
-const invalidMailUser = {
-    firstName: "Fabrice",
-    lastName: "Dab",
-    email: "f.dab/gmail.com",
-    age: 28,
-    uid: "7663ad8f-dff9-44f7-932b-404f4e866d43"
-};
+const validUser = new User("Fabrice", "Dab", 28, "f.dab@gmail.com");
 
-const invalidUidUser = {
-    firstName: "Fabrice",
-    lastName: "Dab",
-    email: "f.dab@gmail.com",
-    age: 28,
-    uid: "7-dff9-44f7-932b-404f4e866d43"
-};
+const invalidAgeUser = new User("Jean", "Dab", 6, "j.dab@gmail.com");
 
-const invalidAgeUser = {
-    firstName: "Fabrice",
-    lastName: "Dab",
-    email: "f.dab@gmail.com",
-    age: 4,
-    uid: "7663ad8f-dff9-44f7-932b-404f4e866d43"
-};
+const invalidMailUser = new User("Maxime", "Dab", 28, "m.dab/gmail.com");
+
+const invalidUidUser = new User("Maxime", "Dab", 28, "m.dab/gmail.com");
+invalidUidUser.uid = '7-dff9-44f7-932b-404f4e866d43';
 
 module.exports = {
     validUser,

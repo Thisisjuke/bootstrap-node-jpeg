@@ -43,6 +43,10 @@ class User {
     set age(age) {
         this._age = age;
     }
+
+    isValid(){
+        this._age > 13 && this._firstName && this._lastName && this.email.match(/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/);
+    }
 }
 
 module.exports = User;

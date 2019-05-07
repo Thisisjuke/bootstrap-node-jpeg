@@ -1,7 +1,7 @@
 const { validUser, invalidAgeUser, invalidMailUser, invalidUidUser } = require('../__mocks__/users.mocks.js');
 
 describe("Tests about User", () => {
-    test('User as firstName, lastName, age, email and uid by default', () => {
+    it('User as firstName, lastName, age, email and uid by default', () => {
         expect(validUser.uid).toBeDefined();
         expect(validUser.firstName).toBeDefined();
         expect(validUser.lastName).toBeDefined();

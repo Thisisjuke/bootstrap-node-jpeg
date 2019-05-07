@@ -1,10 +1,15 @@
-const Product = require('../../class/Product');
+const { validProduct } = require('../__mocks__/products.mocks.js');
 
-const testProduct = new Product('1', "Bouteille d'eau", "Boit de l'eau.", 1);
+describe("Discount tests", () => {
+    it('User as a default discount at 0%', () => {
+        expect(validProduct.owner).toBeDefined();
+        expect(validProduct.title).toBeDefined();
+    });
+});
 
-console.log(testProduct.percentDiscount);
-
-test('User as a default discount at 0%', () => {
-    expect(testProduct.percentDiscount).toBeDefined();
-    expect(testProduct.percentDiscount).toBe(0);
+describe("Product testing", () => {
+    it('User as a default discount at 0%', () => {
+        expect(validProduct.percentDiscount).toBeDefined();
+        expect(validProduct.percentDiscount).toBe(0);
+    });
 });
